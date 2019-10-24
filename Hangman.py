@@ -64,14 +64,15 @@ def play_game(xyc):
 
     #Give feedback of win or defeat
     if word_solved:
-        print("Congratulations! You have won! The correct word was", word,"!")
+        #print("Congratulations! You have won! The correct word was", word,"!")
         xyc = 1
         return xyc
     else:
-        print("You have failed, try again!")
+        #print("You have failed, try again!")
         xyc = 0
         return xyc
 
+#Give feedback of win or defeat    
 xyc = play_game(xyc)
 if int(xyc) == 0:
     print("You failed")
