@@ -1,0 +1,29 @@
+You enter the forest, its dark and gloomy everywhere. 
+As you walk along the road you meet a monk who instantly identifies you as an evil being.
+“STOP RIGHT THERE EVILDOER! I WILL NOT ALLOW YOU TO PROCEED!”
+he yells. 
+He starts to chant a mysterious rhythm and a magical barrier materializes in front of him, you can see through it as if it was glass. 
+What do you do?
+
+>Leave the forest
+>Disturbs his magic with your own
+
+Leave the forest:
+You return to the crossroad.
+
+Disturb his magic chanting:
+[Launch Python game] 
+
+After disturbing his chanting successfully his barrier dematerializes and the monk collapses on the ground. You walk towards him. “Don’t kill me, please!” he says as he starts to cry. 
+What do you do:
+
+>Kill him
+>Let him live
+
+Kill him:
+Without doubt in your mind you raise your sword high and slices the monk in half. As his body falls to the ground you notice him dropping a potion on the floor. [drink potion to gain 1 health]
+
+Let him live:
+The monk flees into the forest, you do not know whereto.
+
+You proceed to follow the road out of the forest. There you find a church.

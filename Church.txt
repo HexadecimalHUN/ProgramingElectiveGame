@@ -1,0 +1,33 @@
+You arrive at a large wooden church, it seems abandoned. Was the monk in the forest really the only one from the church? Or is there more you wonder. The door to the church seems unlocked, will you try to open it?
+ 
+>YES or NO
+
+No:
+Knowing how much trouble the monk caused you, you decide to leave the church. 
+You notice another road that leads towards a nearby village. Will you follow it or return to the forest?
+
+>Road to Village
+>Road to Forest
+
+Road to Village:
+You travel to the nearby village
+
+Road to Forest:
+You return to the forest, from there you can go to the crossroad.
+
+Yes:
+The door opens and you see a priest standing at the alter, otherwise the church is empty. The priest welcomes you to his church “Welcome stranger, come inside”.
+You walk inside the church, the priest doesn’t seem to sense your evil aura, but you definitely can tell that this man is in possession of holy magic.  
+
+The priest walk towards you “I can tell you are not one of the living, you do not belong in this world. I will save your soul child, so you can find rest in the world of the dead.”
+You are left no choice but to fight the priests holy magic with your own dark powers.
+[IoT GAME STARTS]
+
+If you win:
+Your dark powers overwhelm the priest. Through your dark magic the priest lights on fire, he screams as he runs towards you, but collapses right in front of you. A burning corpse.
+The wooden church starts to ignite. You feel every bit of holy magic leaving the place, as the fire burns down the church. You exit the church and is greeted by a goblin. “Sire! You have done brilliantly! Rufus is gathering a goblin army for your disposal, however it is not ready yet.
+We need to gather weapons for the goblin army, and that is where you come into the picture!
+The nearby village has a weaponry that we can loot, but you need to find it 
+
+>Village
+>Return to Forest

@@ -1,0 +1,16 @@
+As you arrive at the village you are greeted by the goblin Rufus.
+“Sire, we have gathered an army of goblins ready to raid the village at your command.
+You will have to lead us into combat. 
+Are you ready for war, sire?”
+
+>YES
+>NO
+
+Yes:
+You march into the village with your army of goblins, the pillaging begins at your command!
+[GROUP GAME STARTS (snake game)]
+
+NO:
+As you aren’t ready to raid the village you decide to return to the castle to prepare for war.
+[RETURNS TO INTRO]
+
