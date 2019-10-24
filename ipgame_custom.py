@@ -12,6 +12,7 @@ def random_ip(seed):
 
 print ("Please calculate the subnet of the following ip:")
 
+
 # IP Random generation
 game_ip = (random_ip(seed=random))  # type: str
 print(game_ip)
@@ -22,12 +23,14 @@ ip_parts = game_ip.split(".")
 ip_parts = [int(part) for part in ip_parts]
 first, second, third, fourth = ip_parts
 
-
-
 if first < 128:    # Type A Address
     # Generating a custom subnet mask
     cus_subn_mask = random.randrange(9, 32, 1)
     print (cus_subn_mask, "is the custom subnet mask")
+
+    # Looking for user input if it is the same:
+    print("Please type your sollution, it should be one number without dots:")
+    user_input = input()
 
     #Adding -8 all the time, because we doesn't wana to deal with the first 8 bit of the IP
     upc = cus_subn_mask - 8
@@ -86,10 +89,17 @@ if first < 128:    # Type A Address
         masked_ip_bin = ''.join(str(e) for e in lst_num_sec)
 
         #Generating a decimal number from the binary
-        masked_ip_dec = int(masked_ip_bin, 2) 
+        masked_ip_dec = int(masked_ip_bin, 2)
 
 
         print("So guys we did it, the ip is the following:", first, masked_ip_dec, "0","0")
+
+        out_c = str(first) + str(masked_ip_dec) +'0' + '0'
+
+        if str(user_input) == out_c:
+            print("You done well, good job!")
+        else:
+            print("Sorry, you missed the chance!")
 
 
     elif upc < 17:
@@ -153,6 +163,13 @@ if first < 128:    # Type A Address
 
         print("So guys we did it, the ip is the following:", first,second,masked_ip_dec,"0")
 
+        out_c = str(first) + str(second) + str(masked_ip_dec) + '0'
+
+        if str(user_input) == out_c:
+            print("You done well, good job!")
+        else:
+            print("Sorry, you missed the chance!")
+
     elif upc < 25:
 
         # Adding -8 all the time, because we doesn't wana to deal with the first and the second and the third 8 bit of the IP
@@ -213,11 +230,22 @@ if first < 128:    # Type A Address
 
         print("So guys we did it, the ip is the following:", first,second,third, masked_ip_dec)
 
+        out_c = str(first) + str(second) +str(third) + str(masked_ip_dec)
+
+        if str(user_input) == out_c:
+            print("You done well, good job!")
+        else:
+            print("Sorry, you missed the chance!")
+
 elif first < 192:  # Type B Address
 
     # Generating a custom subnet mask
     cus_subn_mask = random.randrange(17, 32, 1)
     print (cus_subn_mask, "is the custom subnet mask")
+
+    # Looking for user input if it is the same:
+    print("Please type your sollution, it should be one number without dots:")
+    user_input = input()
 
     # Adding -16 all the time, because we doesn't wana to deal with the first 16 bit of the IP
     upc = cus_subn_mask-16
@@ -281,6 +309,13 @@ elif first < 192:  # Type B Address
         masked_ip_dec = int(masked_ip_bin, 2) -1
 
         print("So guys we did it, the ip is the following:", first,second, masked_ip_dec,"0")
+
+        out_c = str(first) + str(second) +  str(masked_ip_dec) + '0'
+
+        if str(user_input) == out_c:
+            print("You done well, good job!")
+        else:
+            print("Sorry, you missed the chance!")
 
 
     elif upc < 17:
@@ -348,6 +383,13 @@ elif first < 192:  # Type B Address
 
         print("So guys we did it, the ip is the following:", first,second,third, masked_ip_dec)
 
+        out_c = str(first) + str(second) + str(third) + str(masked_ip_dec)
+
+        if str(user_input) == out_c:
+            print("You done well, good job!")
+        else:
+            print("Sorry, you missed the chance!")
+
 
 
 elif first < 256:  # Type C Address
@@ -355,6 +397,10 @@ elif first < 256:  # Type C Address
     # Generating Custom subnet
     cus_subn_mask = random.randrange(25, 32, 1)
     print (cus_subn_mask, "is the custom subnet mask")
+
+    # Looking for user input if it is the same:
+    print("Please type your sollution, it should be one number without dots:")
+    user_input = input()
 
     # Casting binear from the IP-s important section
     lst_num_fourth = [int(i) for i in list('{0:08b}'.format(fourth))]
@@ -413,3 +459,10 @@ elif first < 256:  # Type C Address
     masked_ip_dec = int(masked_ip_bin, 2)
 
     print("So guys we did it, the ip is the following:", first,second,third, masked_ip_dec)
+    out_c = str(first) + str(second) + str(third) + str(masked_ip_dec)
+
+
+    if str(user_input) == out_c:
+        print("You done well, good job!")
+    else:
+        print("Sorry, you missed the chance!")
