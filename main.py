@@ -52,43 +52,51 @@ print("You wake up in a dungeon, you don’t know where you are and everything i
       "Outside of the castle there is a road, which you follow, you meet a crossroad. One road leads to the graveyard where you woke up, the other leads to the forest.\n")
 
 def IOT_Game(IOT_result):
-    def resistor(resist_sum, resistor1, resistor2, resistor3):
+    def resistor(resist_sum, IOT_result, resistor1, resistor2, resistor3):
+        # Generating 3 resistors
 
         if resist_sum == resistor1 + resistor2 + resistor3:
             IOT_result = 1
-            return  IOT_result
+            return IOT_result
         else:
             IOT_result = 2
             return IOT_result
 
-    def current(guess_current, voltage, end_result):
-        current_num = voltage // end_result
+    def current(resist_sum):
+        voltage = random.randrange(1, 1000, 1)
+        print("Voltage", voltage, "Guess the current!")
+        current_num = voltage // resist_sum
+        guess_current = int(input())
         if current_num == guess_current:
             IOT_result = 1
             return IOT_result
         else:
             IOT_result = 2
             return IOT_result
-    # Generating 3 resistors
+
     resistor1 = random.randrange(1, 10, 1)
     print("Resistor 1 =", resistor1)
     resistor2 = random.randrange(1, 10, 1)
     print("Resistor 2 =", resistor2)
     resistor3 = random.randrange(1, 10, 1)
     print("Resistor 3 =", resistor3)
-    end_result = 1
+
+    print("Please calculate the resistors sum value!")
 
     resist_sum = int(input())
-    resistor(resist_sum,resistor1,resistor2,resistor3)
+    IOT_result = resistor(resist_sum,IOT_result,resistor1,resistor2,resistor3)
     if IOT_result == 1:
-        voltage = random.randrange(1, 1000, 1)
-        print("Voltage", voltage, "Guess the current!")
-        guess_current = int(input())
-    elif IOT_result == 2
-
-
-
-
+        print("Great work, keep on going!")
+        IOT_result = current(resist_sum)
+        if IOT_result == 1:
+            print("Good job!")
+            return IOT_result
+        elif IOT_result == 2:
+            print("Wrong anwser")
+            return IOT_result
+    elif IOT_result == 2:
+        print("Wrong Anwser")
+        return IOT_result
 
 # The Custom IP Game
 # It works properly now, crazy shit
@@ -812,25 +820,28 @@ def driver():
         exit("Fallow the instructions Kaj")
 
 # The Curch chapter
+# Done, needs test
 def goto_curch(damage_curch, IOT_result):
     print("You arrive at a large wooden church, it seems abandoned.\n"
-          " Was the monk in the forest really the only one from the church? Or is there more you wonder. \n"
-          "The door to the church seems unlocked, will you try to open it?")
+          "Was the monk in the forest really the only one from the church? Or is there more you wonder. \n"
+          "The door to the church seems unlocked, will you try to open it?\n")
     print(colors.WARNING + "Yes = 0, No = 1" + colors.ENDC)
     door = int(input())
     if door == 0:
         print("The door opens and you see a priest standing at the alter, otherwise the church is empty.\n"
-              " The priest welcomes you to his church “Welcome stranger, come inside”.\n"
+              "The priest welcomes you to his church “Welcome stranger, come inside”.\n"
               "You walk inside the church, the priest doesn’t seem to sense your evil aura, but you definitely can tell that this man is in possession of holy magic.\n" )
         print("The priest walk towards you “I can tell you are not one of the living, you do not belong in this world.\n "
               "I will save your soul child, so you can find rest in the world of the dead.”\n"
               "You are left no choice but to fight the priests holy magic with your own dark powers.\n")
-        IOT_result=IOT_Game(IOT_result)
-        print(IOT_result)
+        IOT_result = IOT_Game(IOT_result)
         if IOT_result == 1:
-            print("You done great job!")
+            print("You done great job\n\n")
+            goto_village(damage_village)
         elif IOT_result == 2:
-            print("You failed")
+            print("You failed\n\n")
+            damage_curch = 1
+            return demage_curch
 
 
     elif door == 1:
@@ -852,7 +863,7 @@ def goto_forest(potion_forest,potion_dice,hp):
         python_result = dice_game(hp)
         if python_result == 1:
             print("You proceed to follow the road out of the forest. There you find a church.")
-            goto_curch()
+            goto_curch(damage_curch,IOT_result)
         elif python_result == 2:
             print("After defeating him the bandit collapses on the ground. You walk towards him.\n “Don’t kill me, please!” he says as he starts to cry. What do you do?")
             print(colors.WARNING + "If you would like kill him press 0, or if you might like to let him alive press 1" + colors.ENDC)
@@ -943,7 +954,7 @@ def goto_village(damage_village):
     print("As you arrive at the village you are greeted by the goblin Rufus.\n"
           "“Sire, we have gathered an army of goblins ready to raid the village at your command.\n"
           "You will have to lead us into combat. \n"
-          "Are you ready for war, sire?”")
+          "Are you ready for war, sire?”\n")
     print(colors.WARNING + "Ready for war = 0 , Not ready for war= 1" + colors.ENDC)
     vilage_dic = 2
     vilage_dic = int(input())
@@ -975,7 +986,7 @@ def damage_hp(hp):
 if potion_forest == 1:
     hp = potion_hp(hp)
     print("Your current hp:", hp)
-    goto_curch(damage_curch)
+    goto_curch(damage_curch,IOT_result)
 
 if potion_grave == 1:
     hp = potion_hp(hp)
@@ -986,13 +997,7 @@ if damage_village == 1:
     hp = damage_hp(hp)
     print("Your current hp:",hp)
     goto_hero()
-
-
-
-
-
-
-
-
-
-
+if demage_curch == 1:
+    hp = damage_hp(hp)
+    print("Your current hp:", hp)
+    goto_village()
