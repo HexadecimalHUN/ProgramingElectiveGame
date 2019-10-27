@@ -16,16 +16,16 @@ Road to Forest:
 You return to the forest, from there you can go to the crossroad.
 
 Yes:
-The door opens and you see a priest standing at the alter, otherwise the church is empty. The priest welcomes you to his church ìWelcome stranger, come insideî.
-You walk inside the church, the priest doesnít seem to sense your evil aura, but you definitely can tell that this man is in possession of holy magic.  
+The door opens and you see a priest standing at the alter, otherwise the church is empty. The priest welcomes you to his church ‚ÄúWelcome stranger, come inside‚Äù.
+You walk inside the church, the priest doesn‚Äôt seem to sense your evil aura, but you definitely can tell that this man is in possession of holy magic.  
 
-The priest walk towards you ìI can tell you are not one of the living, you do not belong in this world. I will save your soul child, so you can find rest in the world of the dead.î
+The priest walk towards you ‚ÄúI can tell you are not one of the living, you do not belong in this world. I will save your soul child, so you can find rest in the world of the dead.‚Äù
 You are left no choice but to fight the priests holy magic with your own dark powers.
 [IoT GAME STARTS]
 
 If you win:
 Your dark powers overwhelm the priest. Through your dark magic the priest lights on fire, he screams as he runs towards you, but collapses right in front of you. A burning corpse.
-The wooden church starts to ignite. You feel every bit of holy magic leaving the place, as the fire burns down the church. You exit the church and is greeted by a goblin. ìSire! You have done brilliantly! Rufus is gathering a goblin army for your disposal, however it is not ready yet.
+The wooden church starts to ignite. You feel every bit of holy magic leaving the place, as the fire burns down the church. You exit the church and is greeted by a goblin. ‚ÄúSire! You have done brilliantly! Rufus is gathering a goblin army for your disposal, however it is not ready yet.
 We need to gather weapons for the goblin army, and that is where you come into the picture!
 The nearby village has a weaponry that we can loot, but you need to find it 
 
