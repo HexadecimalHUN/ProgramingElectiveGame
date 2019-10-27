@@ -2,6 +2,7 @@ import sys
 import random
 from string import hexdigits
 from ipaddress import IPv4Address
+from string import ascii_lowercase
 
 #Color Declarations
 class colors:
@@ -11,7 +12,7 @@ class colors:
     ENDC = '\033[0m'
 
 # Declarations should go here
-hp = 1
+health = [3]
 result_ipgame=0
 go_val = int(3)
 python_result = int(0)
@@ -24,33 +25,127 @@ potion_forest = 0
 damage_village = 0
 damage_curch = 0
 IOT_result = 3
+end_dice = 0
+math1 = 0
+hangmank = 2
 
-# First dialogue
-print("You wake up in a dungeon, you don’t know where you are and everything is dark. \n"
-      "You are in some sort of box, where the top is loose.\n"
-      "You can see a small light shining through a crack in the roof of the box.\n"
-      "You push the roof off the box and a flashing light shines into your face.You are in a catacomb.\n"
-      "You see a small green goblin looking at you, it starts to yell “HES AWAKE! HES AWAKE!”\n"
-      "Suddenly a group of goblins comes down into the catacomb and they all cheer.\n"
-      "“Welcome back from the grave, my lord, I am Rufus your loyal servant” says an old goblin.\n"
-      "Your body feels very fragile and weak, you look down at yourself and discover that you are nothing but a mere skeleton.\n"
-      "“We have been waiting for you for a long time now, my lord, since the hero came and destroyed our castle and killed you sire.\n"
-      "But now you are back and we can start to build your forces of evil once again!” Rufus says.\n"
-      "\n"
-      "You get up from your tomb, the box you were in was your grave, how are you alive you’re wondering? What has happened?\n"
-      "\n"
-      "You follow the goblins up the stairs and you arrive at a graveyard. It is night.\n"
-      "The goblins leads you to a ruin of a castle.\n"
-      "“here we are, you might not recognize it in its current state, but this used to be your home, our home. The Hero destroyed it and slaughtered many of us, including you”\n"
-      "\n"
-      "As you enter the main hall you are greeted by a goblin holding an armor and a sword.\n"
-      "“Put this on sire, this will protect you from those pesky humans!”\n"
-      "\n"
-      "“Now you are ready sire! Come lets gather your forces of evil and take back what was taken from us!” Rufus says as he leads you out of the castle.\n"
-      "“I am sadly too old to tag along with you, but you will do fine by yourself for now.\n"
-      "\n"
-      "Outside of the castle there is a road, which you follow, you meet a crossroad. One road leads to the graveyard where you woke up, the other leads to the forest.\n")
+# Hangman Game
+def hangman(hangmank):
+    num_attempts = 12
+    word = "Village"
 
+    def get_next_letter(letters_left):
+        # Get the next letter from the user
+        while True:
+            next_letter = input("Write your next character: ").lower()
+            if len(next_letter) != 1:
+                print("{0} is not one character".format(next_letter))
+            elif next_letter not in ascii_lowercase:
+                print("{0} is not a letter".format(next_letter))
+            elif next_letter not in letters_left:
+                print("{0} has been typed before".format(next_letter))
+            else:
+                letters_left.remove(next_letter)
+                return next_letter
+
+    xyc = 0
+
+    def play_game(xyc):
+        # The game function
+        print("You have entered the Hangman game")
+        attempts_left = num_attempts
+
+        # Variables inside the game
+        current_word = [letter not in ascii_lowercase for letter in word]
+        letters_left = set(ascii_lowercase)
+        wrong_letters = []
+        word_solved = False
+
+        # Game loop
+        while attempts_left > 0 and not word_solved:
+            print('Word: {0}'.format(current_word))
+            print('Attempts left: {0}'.format(attempts_left))
+            print('Previous guesses: {0}'.format(' '.join(wrong_letters)))
+
+            # Get next letter from the user
+            next_letter = get_next_letter(letters_left)
+
+            # Checks if the letter is in the word
+            if next_letter in word:
+                # Correct guess
+                print('{0} is in the word!'.format(next_letter))
+                # Show the letter inside the word
+                for i in range(len(word)):
+                    if word[i] == next_letter:
+                        current_word[i] = next_letter
+
+            else:
+                # Wrong guess
+                print('{0} is not in the word!'.format(next_letter))
+
+                # remove an attempt
+                attempts_left -= 1
+                wrong_letters.append(next_letter)
+
+            # Check if the word is solved
+            if False not in current_word:
+                word_solved = True
+            print()
+
+        # Give feedback of win or defeat
+        if word_solved:
+            # print("Congratulations! You have won! The correct word was", word,"!")
+            xyc = 1
+            return xyc
+        else:
+            # print("You have failed, try again!")
+            xyc = 0
+            return xyc
+
+    # Give feedback of win or defeat
+    xyc = play_game(xyc)
+    if int(xyc) == 0:
+        hangmank =  0
+        return hangmank
+    else:
+        hangmank = 1
+        return  hangmank
+
+# Mtah Game
+def math_game(math1):
+    score = 0
+    questions = {}
+    passed = False
+
+    print("Hello to the Math game! \nHere you will get 10 math problems to solve. \nSolve at least 8 to proceed")
+    for i in range(10):
+        int_a = random.randint(10, 20)
+        int_b = random.randint(1, 9)
+        operators = ['+', '-', '*', '//']
+        operator_value = random.choice(operators)
+        question = str(int_a) + " " + operator_value + " " + str(int_b)
+        answer = str(eval(question))
+        question += ": "
+        questions.update({question: answer})
+
+    for q in questions.keys():
+        user_answer = input(q)
+        if questions.get(q) == user_answer:
+            print("Correct!")
+            score += 1
+        else:
+            print("You're Wrong!")
+    print("You have " + str(score) + " points!")
+
+    if score < 8:
+        math1 = 0
+        return math1
+    else:
+        passed = True
+        math1 = 1
+        return math1
+
+# IOT Game
 def IOT_Game(IOT_result):
     def resistor(resist_sum, IOT_result, resistor1, resistor2, resistor3):
         # Generating 3 resistors
@@ -404,7 +499,7 @@ def ipgame(result_ipgame):
             masked_ip_bin = ''.join(str(e) for e in lst_num_third)
 
             # Generating a decimal number from the binary
-            masked_ip_dec = int(masked_ip_bin, 2) - 1
+            masked_ip_dec = int(masked_ip_bin, 2)
 
             print("So guys we did it, the ip is the following:", first, second, masked_ip_dec, "0")
 
@@ -570,12 +665,12 @@ def ipgame(result_ipgame):
             result_ipgame = 0
             return result_ipgame
 
-# Dice Game -------------------------------------------------------------------------------------------------------------
+# Dice Game ------------------------------------------------------------------------------------------------------------
 # Now works as it should
-def dice_game(hp, potion_dice):
-    endgame = 0
+def dice_game(end_dice,end_roll,health):
 
-    def roll_dice(endgame):
+    end_roll = 0
+    def roll_dice(end_roll):
         pd1 = random.randrange(1, 6, 1)
         print ("Your first number is:", pd1)
         input("Press Enter to continue...")
@@ -600,41 +695,56 @@ def dice_game(hp, potion_dice):
 
         if pdd > bdd:
             print("Ohh, lucky you!")
-            endgame = 2
-            return endgame
+            end_roll = 1
+            return end_roll
 
         if pdd < bdd:
             print("Nice, you lost the game!")
-            endgame = 3
-            return endgame
+            end_roll = 2
+            return end_roll
 
         if pdd == bdd:
             print("You god damn gangster, its a draw!-you said, but suddenly they raised a revolver to your had! I think we all understand the situation! ")
-            endgame = 3
-            return  endgame
+            end_roll = 2
+            return  end_roll
 
 
-
-
+    print(health)
     print("A few cheeky bastard come next to you. They asking you want to play dice with them? Of course you say yes!")
     print("But suddenly you dont know what is the bet? “Here we playing in lifepoints“-they said! ")
     print("How many lifepoints you want to play with?")
+    print("One Hp is looks eniough for me, doesnt it?")
+    healthpoint = str(health).strip('[]')
+    print(health)
     lifep = int(input())
-    if lifep >  hp:
+    print("Hp", healthpoint)
+    if lifep > int(healthpoint):
         print("You dont have that much healthpoint")
         print("The bandits got annoyed about your altitude and left you!")
-        endgame = 1
-        return endgame
-    elif lifep <= hp:
-        endgame=roll_dice(endgame)
-
-        if endgame == 2:
-            potion_dice = 1
-            return(potion_dice)
-        elif endgame == 3:
-            hp = hp -lifep
-            if hp <= 0:
-                exit("You lost the game!")
+        print("You proceed to follow the road out of the forest. There you find a church.")
+        goto_curch(damage_curch,IOT_result)
+    elif lifep == 1:
+        end_roll=roll_dice(end_roll)
+        if end_roll == 1:
+            end_dice = 1
+            return end_dice
+        elif end_roll == 2:
+            end_dice = 2
+            if healthpoint == 0:
+                exit("-You lost the game!")
+            return end_dice
+    elif lifep != 1:
+        print("-One HP! No more, no less! Dont be greedy!")
+        lifep = 1
+        end_roll = roll_dice(end_roll)
+        if end_roll == 1:
+            end_dice = 1
+            return end_dice
+        elif end_roll == 2:
+            end_dice = 2
+            if healthpoint == 0:
+                exit("-You lost the game!")
+            return end_dice
 
 # Minesweeper Game -----------------------------------------------------------------------------------------------------
 # Most likely needs debug
@@ -814,14 +924,14 @@ def driver():
     if go_val == 0:
         goto_grave(potion_grave)
     elif go_val == 1:
-        goto_forest(potion_forest,potion_dice,hp)
+        goto_forest(potion_forest,potion_dice,health)
     else:
         print (colors.WARNING +"Please press 0 or 1" + colors.ENDC)
         exit("Fallow the instructions Kaj")
 
 # The Curch chapter
 # Done, needs test
-def goto_curch(damage_curch, IOT_result):
+def goto_curch(health, IOT_result):
     print("You arrive at a large wooden church, it seems abandoned.\n"
           "Was the monk in the forest really the only one from the church? Or is there more you wonder. \n"
           "The door to the church seems unlocked, will you try to open it?\n")
@@ -840,31 +950,35 @@ def goto_curch(damage_curch, IOT_result):
             goto_village(damage_village)
         elif IOT_result == 2:
             print("You failed\n\n")
-            damage_curch = 1
-            return demage_curch
+            print("You lost a hp!")
+            health[0] = health[0]-1
+            print("Courrent hp= = ",health)
+            if health[0] == 0:
+                exit("You lost the game")
+            goto_village()
+
 
 
     elif door == 1:
-        goto_forest(potion_forest,potion_dice,hp)
+        goto_forest(potion_forest,potion_dice,health)
     else:
         print (colors.WARNING +"Please press 0 or 1" + colors.ENDC)
         exit("Fallow the instructions Kaj")
 
 # The forest chapter
 # Now it kinda works fine
-def goto_forest(potion_forest,potion_dice,hp):
-    python_dec = 2
-    print("You enter the forest, its dark and gloomy everywhere. "
-          "As you walk along the road you meet a an evil looking cheeky bestard."
-          "“STOP RIGHT THERE EVILDOER! I WILL NOT ALLOW YOU TO PROCEED!”-he yells.")
+def goto_forest(health, end_dice, end_roll):
+    print("You enter the forest, its dark and gloomy everywhere.\n "
+          "As you walk along the road you meet a an evil looking cheeky bestard.\n"
+          "“STOP RIGHT THERE EVILDOER! I WILL NOT ALLOW YOU TO PROCEED!”-he yells.\n")
     print(colors.WARNING +"If you would like to get closer press 0 or if you would like to go to the graveyard press 1"+ colors.ENDC)
+    health = [3]
+    print(health)
     python_game=int(input())
     if python_game == 0:
-        python_result = dice_game(hp)
-        if python_result == 1:
-            print("You proceed to follow the road out of the forest. There you find a church.")
-            goto_curch(damage_curch,IOT_result)
-        elif python_result == 2:
+        end_dice = dice_game(end_dice,end_roll,health)
+
+        if end_dice == 1:
             print("After defeating him the bandit collapses on the ground. You walk towards him.\n “Don’t kill me, please!” he says as he starts to cry. What do you do?")
             print(colors.WARNING + "If you would like kill him press 0, or if you might like to let him alive press 1" + colors.ENDC)
             python_dec = int(input())
@@ -877,17 +991,37 @@ def goto_forest(potion_forest,potion_dice,hp):
             else :
                 print(colors.WARNING +"Please press 0 or 1" + colors.ENDC)
                 exit("Fallow the instructions Kaj")
+
+            print("You earned a hp!")
+            print (health)
+            health[0] = health[0]+1
+            print("Courrent hp = ", health)
+            if int(str(health).strip('[]')) == 0:
+                exit("You lost the game")
+            goto_curch(health, IOT_result)
+
+        elif end_dice == 2:
+            print(health)
+            print("You lost a hp!")
+            health[0] = health[0]-1
+            print("Courrent hp = ", health)
+            if int(str(health).strip('[]')) == 0:
+                exit("You lost the game")
+            goto_curch(health, IOT_result)
+
+
     elif python_game == 1:
-        goto_grave(potion)
+        goto_grave(potion_grave)
     else:
         print(colors.WARNING + "Please press 0 or 1" + colors.ENDC)
         exit("Fallow the instructions Kaj")
-    return hp
+
 
 # The Graveyard chapter
 # It also works fine
 # Cant loose hp
-def goto_grave(potion_grave):
+def goto_grave(health):
+    health = [1]
     print("You arrive at the graveyard, here you meet an old man\n"
           "“Greetings my armored friend, what are you doing out here at this time of the night? Are you here to rob graves hehe?”\n")
     print(colors.WARNING +"Yes = 0 or No = 1"+ colors.ENDC)
@@ -916,41 +1050,80 @@ def goto_grave(potion_grave):
             print("You remove your helmet, revealing your skull. \n"
                   "The old man screams in terror and runs out of the catacombs. \n"
                   "You are now free to search the tomb without the old man.\n")
-            goto_armory()
+            goto_armory(health)
         if grave3 == 1:
             print("You find a chest hidden behind the coffin, there is a mysterious lock on it." )
             ipgame_result=ipgame(result_ipgame)
             if ipgame_result == 0:
                 print("Oh No, you broke your lockpick")
-                goto_armory()
+                goto_armory(health)
             elif ipgame_result == 1:
                 print("Great job, you succesfully opened the chest")
                 print(colors.OKBLUE+"A Key and a Healt Potion has been added to your inventory!\nHealt Potion increase your Healt Point by 1! Great job!"+colors.ENDC)
-                potion = 1
                 key = 1
-                return potion
-                return key
+                print("You earned a hp!")
+                print(health)
+                health[0] = health[0] + 1
+                print("Courrent hp = ", health)
+                if int(str(health).strip('[]')) == 0:
+                    exit("You lost the game")
+                goto_armory(health)
+
+
     if grave2 == 1:
         print("You see a road that leads out of the graveyard and into a nearby village.")
-        goto_village()
+        goto_village(health)
 
     if grave2 == 2:
         print("You goes ahead to the forest")
-        goto_forest(hp)
+        goto_forest(health)
 
-def goto_hero():
-    return
+# Hero Chapter
+def goto_hero(health):
+    print("After the dust has settled and the village has been pillaged you stand with a group of prisoners.\n"
+          "“SIRE! We have captured the hero that crushed our castle and slayed you, we are ready to\n"
+          " punish him for his crimes against the Goblin race and the forces of evil!” Rufus says.")
+    print("“HANG HIM, HANG HIM!” the goblin army shouts.")
+    hangmank=hangman(hangmank)
+    if hangmank == 1:
+        print("You won")
+        goto_door()
+        
+    elif hangmank == 0:
+        print("You failed\n\n")
+        print("You lost a hp!")
+        health[0] = health[0] - 1
+        print("Courrent hp= = ", health)
+        if health[0] == 0:
+            exit("You lost the game")
+        goto_village(health)
+
+
+def goto_door():
+    return 
+
 # The armory chapter
 # Should be done - math game!
-def goto_armory(damage_armory):
+def goto_armory(health):
     print("On your road to the village you find an armory guarded by a paladin in shining armor. "
           "He sees you and yells at you “UNHOLY BEING I SHALL SMITE THEE!”")
-
-    #math game goes here
+    math1 = 0
+    math1 = math_game(math1)
+    if math1 == 1:
+        print("Congratulations, you won!")
+        goto_village(health)
+    elif math1 == 0:
+        print("You failed\n\n")
+        print("You lost a hp!")
+        health[0] = health[0]-1
+        print("Courrent hp = ", health)
+        if health[0] == 0:
+            exit("You lost the game")
+        goto_village()
 
 # The vilage chapter
 # Can loose hp there
-def goto_village(damage_village):
+def goto_village(health):
     print("As you arrive at the village you are greeted by the goblin Rufus.\n"
           "“Sire, we have gathered an army of goblins ready to raid the village at your command.\n"
           "You will have to lead us into combat. \n"
@@ -963,41 +1136,44 @@ def goto_village(damage_village):
         if solved == 1:
             goto_hero()
         if solved == 2:
-            damage_village = 1
-            return damage_village
+            print("You failed\n\n")
+            print("You lost a hp!")
+            health[0] = health[0] - 1
+            print("Courrent hp = ", health)
+            if health[0] == 0:
+                exit("You lost the game")
+            goto_hero()
+
     if vilage_dic == 1:
         print("As you aren’t ready to raid the village you decide to return to the armory to prepare for war")
         goto_armory()
-goto_curch(damage_curch, IOT_result)
+
+# First dialogue
+print("You wake up in a dungeon, you don’t know where you are and everything is dark. \n"
+      "You are in some sort of box, where the top is loose.\n"
+      "You can see a small light shining through a crack in the roof of the box.\n"
+      "You push the roof off the box and a flashing light shines into your face.You are in a catacomb.\n"
+      "You see a small green goblin looking at you, it starts to yell “HES AWAKE! HES AWAKE!”\n"
+      "Suddenly a group of goblins comes down into the catacomb and they all cheer.\n"
+      "“Welcome back from the grave, my lord, I am Rufus your loyal servant” says an old goblin.\n"
+      "Your body feels very fragile and weak, you look down at yourself and discover that you are nothing but a mere skeleton.\n"
+      "“We have been waiting for you for a long time now, my lord, since the hero came and destroyed our castle and killed you sire.\n"
+      "But now you are back and we can start to build your forces of evil once again!” Rufus says.\n"
+      "\n"
+      "You get up from your tomb, the box you were in was your grave, how are you alive you’re wondering? What has happened?\n"
+      "\n"
+      "You follow the goblins up the stairs and you arrive at a graveyard. It is night.\n"
+      "The goblins leads you to a ruin of a castle.\n"
+      "“here we are, you might not recognize it in its current state, but this used to be your home, our home. The Hero destroyed it and slaughtered many of us, including you”\n"
+      "\n"
+      "As you enter the main hall you are greeted by a goblin holding an armor and a sword.\n"
+      "“Put this on sire, this will protect you from those pesky humans!”\n"
+      "\n"
+      "“Now you are ready sire! Come lets gather your forces of evil and take back what was taken from us!” Rufus says as he leads you out of the castle.\n"
+      "“I am sadly too old to tag along with you, but you will do fine by yourself for now.\n"
+      "\n"
+      "Outside of the castle there is a road, which you follow, you meet a crossroad. One road leads to the graveyard where you woke up, the other leads to the forest.\n")
+
+# Driver Function
 driver()
 
-
-# Hp Recording TAB // MODIFY VERY CAREFULLY
-def potion_hp(hp):
-    hp + 1
-    return hp
-
-def damage_hp(hp):
-    hp - 1
-    if hp == 0:
-        exit("Your HP reached 0, you died!")
-    return hp
-
-if potion_forest == 1:
-    hp = potion_hp(hp)
-    print("Your current hp:", hp)
-    goto_curch(damage_curch,IOT_result)
-
-if potion_grave == 1:
-    hp = potion_hp(hp)
-    print("Your current hp:",hp)
-    goto_armory(hp_armory)
-
-if damage_village == 1:
-    hp = damage_hp(hp)
-    print("Your current hp:",hp)
-    goto_hero()
-if demage_curch == 1:
-    hp = damage_hp(hp)
-    print("Your current hp:", hp)
-    goto_village()
