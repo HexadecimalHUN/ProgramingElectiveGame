@@ -1236,5 +1236,4 @@ print("You wake up in a dungeon, you don’t know where you are and everything i
       "Outside of the castle there is a road, which you follow, you meet a crossroad. One road leads to the graveyard where you woke up, the other leads to the forest.\n")
 
 # Driver Function
-goto_village(health)
 driver()
