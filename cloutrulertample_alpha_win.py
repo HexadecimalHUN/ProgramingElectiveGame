@@ -6,7 +6,8 @@ from string import ascii_lowercase
 
 
 # Declarations should go here
-key =  [0]
+# Self REM: Check wich is important wich is not
+key = [0]
 health = [3]
 result_ipgame = 0
 go_val = int(3)
@@ -22,13 +23,15 @@ IOT_result = 3
 end_dice = 0
 math1 = 0
 hangmank = 2
+runningoutofnames = 2
 
 
 # Hangman Game
 def hangman(hangmank):
     num_attempts = 12
-    word = "Village"
+    word = "village"
 
+    # Generting the next letter, checking if its correct
     def get_next_letter(letters_left):
         # Get the next letter from the user
         while True:
@@ -43,6 +46,7 @@ def hangman(hangmank):
                 letters_left.remove(next_letter)
                 return next_letter
 
+    # Implemented for outcome
     xyc = 0
 
     def play_game(xyc):
@@ -115,9 +119,12 @@ def math_game(math1):
 
     print("Hello to the Math game! \nHere you will get 10 math problems to solve. \nSolve at least 8 to proceed")
     for i in range(10):
+        # Grabbing random values
         int_a = random.randint(10, 20)
         int_b = random.randint(1, 9)
+        # Declare operators
         operators = ['+', '-', '*', '//']
+        # Random Operator
         operator_value = random.choice(operators)
         question = str(int_a) + " " + operator_value + " " + str(int_b)
         answer = str(eval(question))
@@ -132,7 +139,7 @@ def math_game(math1):
         else:
             print("You're Wrong!")
     print("You have " + str(score) + " points!")
-
+    # Scoreing Stuff
     if score < 8:
         math1 = 0
         return math1
@@ -145,8 +152,6 @@ def math_game(math1):
 # IOT Game
 def IOT_Game(IOT_result):
     def resistor(resist_sum, IOT_result, resistor1, resistor2, resistor3):
-        # Generating 3 resistors
-
         if resist_sum == resistor1 + resistor2 + resistor3:
             IOT_result = 1
             return IOT_result
@@ -154,6 +159,7 @@ def IOT_Game(IOT_result):
             IOT_result = 2
             return IOT_result
 
+    # Current Calculate Function, Check if Input is = Calculated
     def current(resist_sum):
         voltage = random.randrange(1, 1000, 1)
         print("Voltage", voltage, "Guess the current!")
@@ -166,6 +172,7 @@ def IOT_Game(IOT_result):
             IOT_result = 2
             return IOT_result
 
+    # Generating 3 resistors
     resistor1 = random.randrange(1, 10, 1)
     print("Resistor 1 =", resistor1)
     resistor2 = random.randrange(1, 10, 1)
@@ -177,6 +184,7 @@ def IOT_Game(IOT_result):
 
     resist_sum = int(input())
     IOT_result = resistor(resist_sum, IOT_result, resistor1, resistor2, resistor3)
+    # Outcome value stuff
     if IOT_result == 1:
         print("Great work, keep on going!")
         IOT_result = current(resist_sum)
@@ -670,6 +678,7 @@ def dice_game(end_dice, end_roll, health):
     end_roll = 0
 
     def roll_dice(end_roll):
+        # Generating 3 randoms for the user
         pd1 = random.randrange(1, 6, 1)
         print("Your first number is:", pd1)
         input("Press Enter to continue...")
@@ -679,8 +688,10 @@ def dice_game(end_dice, end_roll, health):
         pd3 = random.randrange(1, 6, 1)
         print("Your third number is:", pd3)
         input("Press Enter to continue...")
+        # Sum Gen. Numbers
         pdd = pd1 + pd2 + pd3
 
+        # Generating 3 randoms for the computer
         bd1 = random.randrange(1, 6, 1)
         print("Your enemies first number is:", bd1)
         input("Press Enter to continue...")
@@ -689,9 +700,9 @@ def dice_game(end_dice, end_roll, health):
         input("Press Enter to continue...")
         bd3 = random.randrange(1, 6, 1)
         print("Your enemies third number is:", bd3)
-
+        # Sum Gen. Numbers
         bdd = bd1 + bd2 + bd3
-
+        # Compare + Outcome Stuff
         if pdd > bdd:
             print("Ohh, lucky you!")
             end_roll = 1
@@ -708,6 +719,7 @@ def dice_game(end_dice, end_roll, health):
             end_roll = 2
             return end_roll
 
+    # Health stuff, kinda complicated, from list gen str.
     print(health)
     print("A few cheeky bastard come next to you. They asking you want to play dice with them? Of course you say yes!")
     print("But suddenly you dont know what is the bet? “Here we playing in lifepoints“-they said! ")
@@ -723,6 +735,7 @@ def dice_game(end_dice, end_roll, health):
         print("You proceed to follow the road out of the forest. There you find a church.")
         goto_curch(damage_curch, IOT_result)
     elif lifep == 1:
+        # Function Call
         end_roll = roll_dice(end_roll)
         if end_roll == 1:
             end_dice = 1
@@ -755,12 +768,15 @@ def minesweeper(solved):
             self.is_visible = is_visible
             self.is_flagged = is_flagged
 
+        # Show function
         def show(self):
             self.is_visible = True
 
+        # Flag Function
         def flag(self):
             self.is_flagged = not self.is_flagged
 
+        # Mine function
         def place_mine(self):
             self.is_mine = True
 
@@ -782,6 +798,7 @@ def minesweeper(solved):
             else:
                 return "X"
 
+        # Board Sting function, writes out useful stuff
         def __str__(self):
             board_string = ("Mines: " + str(self.remaining_mines) + "\n  " +
                             "".join([str(i) for i in range(len(self))]))
@@ -792,6 +809,7 @@ def minesweeper(solved):
             board_string += "\n  " + "".join([str(i) for i in range(len(self))])
             return board_string
 
+        # Reveal cell function
         def show(self, row_id, col_id):
             cell = self[row_id][col_id]
             if not cell.is_visible:
@@ -805,6 +823,7 @@ def minesweeper(solved):
                         if self.is_in_range(surr_row, surr_col):
                             self.show(surr_row, surr_col)
 
+        # Whatif already visible, but try to flag
         def flag(self, row_id, col_id):
             cell = self[row_id][col_id]
             if not cell.is_visible:
@@ -812,14 +831,17 @@ def minesweeper(solved):
             else:
                 print("Cannot add flag, cell already visible.")
 
+        # Mine Gen
         def place_mine(self, row_id, col_id):
             self[row_id][col_id].place_mine()
 
+        # Calculate surr.
         def count_surrounding(self, row_id, col_id):
             return sum(1 for (surr_row, surr_col) in self.get_neighbours(row_id, col_id)
                        if (self.is_in_range(surr_row, surr_col) and
                            self[surr_row][surr_col].is_mine))
 
+        # Neighbour values
         def get_neighbours(self, row_id, col_id):
             SURROUNDING = ((-1, -1), (-1, 0), (-1, 1),
                            (0, -1), (0, 1),
@@ -830,6 +852,7 @@ def minesweeper(solved):
             return 0 <= row_id < len(self) and 0 <= col_id < len(self)
 
         @property
+        # Calculate remaining mines
         def remaining_mines(self):
             remaining = 0
             for row in self:
@@ -841,9 +864,11 @@ def minesweeper(solved):
             return remaining
 
         @property
+        # If the maze solved
         def is_solved(self):
             return all((cell.is_visible or cell.is_mine) for row in self for cell in row)
 
+    # Board Creation function
     def create_board(size, mines):
         board = Board(tuple([tuple([Cell(False) for i in range(size)])
                              for j in range(size)]))
@@ -855,6 +880,7 @@ def minesweeper(solved):
             board.place_mine(row_id, col_id)
         return board
 
+    # Input help, because i cant eneter the program here, that would be disguasting
     def get_move(board):
         INSTRUCTIONS = ("First, enter the column, followed by the row. To add or "
                         "remove a flag, add \"f\" after the row (for example, 64f "
@@ -872,6 +898,7 @@ def minesweeper(solved):
 
         return (int(move[1]), int(move[0]), move[-1] == "f")
 
+    # Validate Input
     def is_valid(move_input, board):
         if move_input == "H" or (len(move_input) not in (2, 3) or
                                  not move_input[:1].isdigit() or
@@ -884,8 +911,7 @@ def minesweeper(solved):
 
         return True
 
-
-
+    # Main driver function
     def main(solved):
         SIZE = 10
         MINES = 9
@@ -901,16 +927,18 @@ def minesweeper(solved):
 
         if board.is_solved:
             solved = 1
+            print("Congrats, you solved the puzzle")
             return solved
         else:
             print("Uh oh! You blew up!")
             solved = 2
             return solved
 
-    main(solved)
+    # Function Call
+    solved = main(solved)
 
     if solved == 1:
-        print("you won")
+        print("you won the hangman game \n")
     return solved
 
 
@@ -918,10 +946,10 @@ def minesweeper(solved):
 # Not much, works fine
 def driver():
     print("Where do you want to go first?")
-    print("Graveyard = 0, Forest = 1" )
+    print("Graveyard = 0, Forest = 1")
     go_val = int(input())
     if go_val == 0:
-        goto_grave(potion_grave,key)
+        goto_grave(potion_grave, key)
     elif go_val == 1:
         goto_forest(potion_forest, potion_dice, health)
     else:
@@ -982,7 +1010,8 @@ def goto_forest(health, end_dice, end_roll):
         end_dice = dice_game(end_dice, end_roll, health)
 
         if end_dice == 1:
-            print("After defeating him the bandit collapses on the ground. You walk towards him.\n “Don’t kill me, please!” he says as he starts to cry. What do you do?")
+            print(
+                "After defeating him the bandit collapses on the ground. You walk towards him.\n “Don’t kill me, please!” he says as he starts to cry. What do you do?")
             print("If you would like kill him press 0, or if you might like to let him alive press 1")
             python_dec = int(input())
             if python_dec == 0:
@@ -1024,7 +1053,7 @@ def goto_forest(health, end_dice, end_roll):
 # The Graveyard chapter
 # It also works fine
 # Cant loose hp
-def goto_grave(health,key):
+def goto_grave(health, key):
     health = [1]
     print("You arrive at the graveyard, here you meet an old man\n"
           "“Greetings my armored friend, what are you doing out here at this time of the night? Are you here to rob graves hehe?”\n")
@@ -1066,7 +1095,7 @@ def goto_grave(health,key):
             elif ipgame_result == 1:
                 print("Great job, you succesfully opened the chest")
                 print("Great job, you succesfully opened the chest")
-                print("A Key and a Healt Potion has been added to your inventory!\nHealt Potion increase your Healt Point by 1! Great job!" )
+                print( "A Key and a Healt Potion has been added to your inventory!\nHealt Potion increase your Healt Point by 1! Great job!" )
                 key[0] = 1
                 print("You earned a hp!")
                 print(health)
@@ -1091,12 +1120,12 @@ def goto_hero(health):
           "“SIRE! We have captured the hero that crushed our castle and slayed you, we are ready to\n"
           " punish him for his crimes against the Goblin race and the forces of evil!” Rufus says.")
     print("“HANG HIM, HANG HIM!” the goblin army shouts.")
-    hangmank = hangman(hangmank)
-    if hangmank == 1:
+    runningoutofnames = hangman(hangmank)
+    if runningoutofnames == 1:
         print("You won")
         goto_door(key, health)
 
-    elif hangmank == 0:
+    elif runningoutofnames == 0:
         print("You failed\n\n")
         print("You lost a hp!")
         health[0] = health[0] - 1
@@ -1106,7 +1135,8 @@ def goto_hero(health):
         goto_village(health)
 
 
-def goto_door(key,health):
+# Game Ending
+def goto_door(key, health):
     health = [1]
     keyk = str(key).strip('[]')
     if int(keyk) == 1:
@@ -1152,7 +1182,7 @@ def goto_village(health):
     if vilage_dic == 0:
         minesweeper(solved)
         if solved == 1:
-            goto_hero()
+            goto_hero(health)
         if solved == 2:
             print("You failed\n\n")
             print("You lost a hp!")
@@ -1160,7 +1190,7 @@ def goto_village(health):
             print("Courrent hp = ", health)
             if health[0] == 0:
                 exit("You lost the game")
-            goto_hero()
+            goto_hero(health)
 
     if vilage_dic == 1:
         print("As you aren’t ready to raid the village you decide to return to the armory to prepare for war")
@@ -1194,6 +1224,4 @@ print("You wake up in a dungeon, you don’t know where you are and everything i
       "Outside of the castle there is a road, which you follow, you meet a crossroad. One road leads to the graveyard where you woke up, the other leads to the forest.\n")
 
 # Driver Function
-
 driver()
-
