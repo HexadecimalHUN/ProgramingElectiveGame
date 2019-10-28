@@ -120,13 +120,13 @@ def hangman(hangmank):
         return hangmank
 
 
-# Mtah Game
+# Math Game
 def math_game(math1):
     score = 0
     questions = {}
     passed = False
 
-    print("Hello to the Math game! \nHere you will get 10 math problems to solve. \nSolve at least 8 to proceed")
+    print("Welcome to the Math game! \nHere you will get 10 math problems to solve. \nSolve at least 8 to proceed")
     for i in range(10):
         # Grabbing random values
         int_a = random.randint(10, 20)
@@ -171,7 +171,7 @@ def IOT_Game(IOT_result):
     # Current Calculate Function, Check if Input is = Calculated
     def current(resist_sum):
         voltage = random.randrange(1, 1000, 1)
-        print("Voltage", voltage, "Guess the current!")
+        print("The Voltage is", voltage, ", calculate the current!")
         current_num = voltage // resist_sum
         guess_current = int(input())
         if current_num == guess_current:
@@ -189,22 +189,22 @@ def IOT_Game(IOT_result):
     resistor3 = random.randrange(1, 10, 1)
     print("Resistor 3 =", resistor3)
 
-    print("Please calculate the resistors sum value!")
+    print("Please calculate the resistors total value!")
 
     resist_sum = int(input())
     IOT_result = resistor(resist_sum, IOT_result, resistor1, resistor2, resistor3)
     # Outcome value stuff
     if IOT_result == 1:
-        print("Great work, keep on going!")
+        print("Great work, keep going!")
         IOT_result = current(resist_sum)
         if IOT_result == 1:
             print("Good job!")
             return IOT_result
         elif IOT_result == 2:
-            print("Wrong anwser")
+            print("Wrong answer")
             return IOT_result
     elif IOT_result == 2:
-        print("Wrong Anwser")
+        print("Wrong answer")
         return IOT_result
 
 
@@ -215,7 +215,7 @@ def ipgame(result_ipgame):
         random.seed(seed)
         return str(IPv4Address(random.getrandbits(32)))
 
-    print("Please calculate the subnet of the following ip:")
+    print("Please calculate the custom subnet for the following ip:")
 
     # IP Random generation
     game_ip = (random_ip(seed=random))  # type: str
@@ -233,10 +233,10 @@ def ipgame(result_ipgame):
         print(cus_subn_mask, "is the custom subnet mask")
 
         # Looking for user input if it is the same:
-        print("Please type your sollution, it should be one number without dots:")
+        print("Please type your solution, it should be one number without dots:")
         user_input = input()
 
-        # Adding -8 all the time, because we doesn't wana to deal with the first 8 bit of the IP
+        # Adding -8 all the time, because we doesn't want to deal with the first 8 bit of the IP
         upc = cus_subn_mask - 8
 
         # If the subnet mask is 8 or less character long belongs to here
@@ -294,16 +294,16 @@ def ipgame(result_ipgame):
             # Generating a decimal number from the binary
             masked_ip_dec = int(masked_ip_bin, 2)
 
-            print("So guys we did it, the ip is the following:", first, masked_ip_dec, "0", "0")
+            print("You made it, the ip is the following:", first, masked_ip_dec, "0", "0")
 
             out_c = str(first) + str(masked_ip_dec) + '0' + '0'
 
             if str(user_input) == out_c:
-                print("You done well, good job!")
+                print("Well done, that's the correct answer!")
                 result_ipgame = 1
                 return result_ipgame
             else:
-                print("Sorry, you missed the chance!")
+                print("Sorry, you missed your chance!")
                 result_ipgame = 0
                 return result_ipgame
 
@@ -365,16 +365,16 @@ def ipgame(result_ipgame):
             # Generating a decimal number from the binary
             masked_ip_dec = int(masked_ip_bin, 2)
 
-            print("So guys we did it, the ip is the following:", first, second, masked_ip_dec, "0")
+            print("You made it, the ip is the following:", first, second, masked_ip_dec, "0")
 
             out_c = str(first) + str(second) + str(masked_ip_dec) + '0'
 
             if str(user_input) == out_c:
-                print("You done well, good job!")
+                print("Well done, that's the correct answer!")
                 result_ipgame = 1
                 return result_ipgame
             else:
-                print("Sorry, you missed the chance!")
+                print("Sorry, you missed your chance")
                 result_ipgame = 0
                 return result_ipgame
 
@@ -435,16 +435,16 @@ def ipgame(result_ipgame):
 
             masked_ip_dec = int(masked_ip_bin, 2)
 
-            print("So guys we did it, the ip is the following:", first, second, third, masked_ip_dec)
+            print("You made it, the ip is the following:", first, second, third, masked_ip_dec)
 
             out_c = str(first) + str(second) + str(third) + str(masked_ip_dec)
 
             if str(user_input) == out_c:
-                print("You done well, good job!")
+                print("Well done, that's the correct answer!")
                 result_ipgame = 1
                 return result_ipgame
             else:
-                print("Sorry, you missed the chance!")
+                print("Sorry, you missed your chance!")
                 result_ipgame = 0
                 return result_ipgame
 
@@ -455,7 +455,7 @@ def ipgame(result_ipgame):
         print(cus_subn_mask, "is the custom subnet mask")
 
         # Looking for user input if it is the same:
-        print("Please type your sollution, it should be one number without dots:")
+        print("Please type your solution, it should be one number without dots:")
         user_input = input()
 
         # Adding -16 all the time, because we doesn't wana to deal with the first 16 bit of the IP
@@ -516,16 +516,16 @@ def ipgame(result_ipgame):
             # Generating a decimal number from the binary
             masked_ip_dec = int(masked_ip_bin, 2)
 
-            print("So guys we did it, the ip is the following:", first, second, masked_ip_dec, "0")
+            print("You made it, the ip is the following:", first, second, masked_ip_dec, "0")
 
             out_c = str(first) + str(second) + str(masked_ip_dec) + '0'
 
             if str(user_input) == out_c:
-                print("You done well, good job!")
+                print("Well done, that's the correct answer!")
                 result_ipgame = 1
                 return result_ipgame
             else:
-                print("Sorry, you missed the chance!")
+                print("Sorry, you missed your chance!")
                 result_ipgame = 0
                 return result_ipgame
 
@@ -588,16 +588,16 @@ def ipgame(result_ipgame):
             # Generating a decimal number from the binary
             masked_ip_dec = int(masked_ip_bin, 2)
 
-            print("So guys we did it, the ip is the following:", first, second, third, masked_ip_dec)
+            print("You made it, the ip is the following:", first, second, third, masked_ip_dec)
 
             out_c = str(first) + str(second) + str(third) + str(masked_ip_dec)
 
             if str(user_input) == out_c:
-                print("You done well, good job!")
+                print("Well done, that's the correct answer!")
                 result_ipgame = 1
                 return result_ipgame
             else:
-                print("Sorry, you missed the chance!")
+                print("Sorry, you missed your chance!")
                 result_ipgame = 0
                 return result_ipgame
 
@@ -610,7 +610,7 @@ def ipgame(result_ipgame):
         print(cus_subn_mask, "is the custom subnet mask")
 
         # Looking for user input if it is the same:
-        print("Please type your sollution, it should be one number without dots:")
+        print("Please type your solution, it should be one number without dots:")
         user_input = input()
 
         # Casting binear from the IP-s important section
@@ -668,15 +668,15 @@ def ipgame(result_ipgame):
         # Generating a decimal number from the binary
         masked_ip_dec = int(masked_ip_bin, 2)
 
-        print("So guys we did it, the ip is the following:", first, second, third, masked_ip_dec)
+        print("You made it, the ip is the following:", first, second, third, masked_ip_dec)
         out_c = str(first) + str(second) + str(third) + str(masked_ip_dec)
 
         if str(user_input) == out_c:
-            print("You done well, good job!")
+            print("Well done, that's the correct answer!")
             result_ipgame = 1
             return result_ipgame
         else:
-            print("Sorry, you missed the chance!")
+            print("Sorry, you missed your chance!")
             result_ipgame = 0
             return result_ipgame
 
@@ -718,29 +718,29 @@ def dice_game(end_dice, end_roll, health):
             return end_roll
 
         if pdd < bdd:
-            print("Nice, you lost the game!")
+            print("Sorry, you lost the game!")
             end_roll = 2
             return end_roll
 
         if pdd == bdd:
             print(
-                "You god damn gangster, its a draw!-you said, but suddenly they raised a revolver to your had! I think we all understand the situation! ")
+                "You god damn gangster, its a draw!-you said, but suddenly they raised a revolver to your head! I think we all understand the situation! ")
             end_roll = 2
             return end_roll
 
     # Health stuff, kinda complicated, from list gen str.
     print(health)
-    print("A few cheeky bastard come next to you. They asking you want to play dice with them? Of course you say yes!")
-    print("But suddenly you dont know what is the bet? “Here we playing in lifepoints“-they said! ")
-    print("How many lifepoints you want to play with?")
-    print("One Hp is looks eniough for me, doesnt it?")
+    print("A few cheeky bastards came up next to you. Asking if you want to play a game of dice with them? Of course you say yes!")
+    print("But suddenly you dont know what is the bet? “Here we're playing in lifepoints“-they said! ")
+    print("How many lifepoints do you want to play with?")
+    print("One Hp looks enough for me, doesnt it?")
     healthpoint = str(health).strip('[]')
     print(health)
     lifep = int(input())
     print("Hp", healthpoint)
     if lifep > int(healthpoint):
-        print("You dont have that much healthpoint")
-        print("The bandits got annoyed about your altitude and left you!")
+        print("You dont have that many healthpoints")
+        print("The bandits got annoyed about your attitude and left you!")
         print("You proceed to follow the road out of the forest. There you find a church.")
         goto_curch(damage_curch, IOT_result)
     elif lifep == 1:
@@ -947,7 +947,7 @@ def minesweeper(solved):
     solved = main(solved)
 
     if solved == 1:
-        print("you won the minesweeper game \n")
+        print("You won the minesweeper game \n")
     return solved
 
 
@@ -963,7 +963,7 @@ def driver():
         goto_forest(potion_forest, potion_dice, health)
     else:
         print(colors.WARNING + "Please press 0 or 1" + colors.ENDC)
-        exit("Fallow the instructions Kaj")
+        exit("Follow the instructions Kaj")
 
 
 # The Curch chapter
@@ -976,22 +976,22 @@ def goto_curch(health, IOT_result):
     print(colors.WARNING + "Yes = 0, No = 1" + colors.ENDC)
     door = int(input())
     if door == 0:
-        print("The door opens and you see a priest standing at the alter, otherwise the church is empty.\n"
+        print("The door opens and you see a priest standing at the altar, otherwise the church is empty.\n"
               "The priest welcomes you to his church “Welcome stranger, come inside”.\n"
               "You walk inside the church, the priest doesn’t seem to sense your evil aura, but you definitely can tell that this man is in possession of holy magic.\n")
         print(
             "The priest walk towards you “I can tell you are not one of the living, you do not belong in this world.\n "
             "I will save your soul child, so you can find rest in the world of the dead.”\n"
-            "You are left no choice but to fight the priests holy magic with your own dark powers.\n")
+            "You are left with no other choice than fighting the priests holy magic with your own dark powers.\n")
         IOT_result = IOT_Game(IOT_result)
         if IOT_result == 1:
-            print("You done great job\n\n")
+            print("You've done a great job\n\n")
             goto_village(damage_village)
         elif IOT_result == 2:
             print("You failed\n\n")
-            print("You lost a hp!")
+            print("You lost a healthpoint!")
             health[0] = health[0] - 1
-            print("Courrent hp= = ", health)
+            print("Current healthpoint= = ", health)
             if health[0] == 0:
                 exit("You lost the game")
             goto_village()
@@ -1002,14 +1002,14 @@ def goto_curch(health, IOT_result):
         goto_forest(potion_forest, potion_dice, health)
     else:
         print(colors.WARNING + "Please press 0 or 1" + colors.ENDC)
-        exit("Fallow the instructions Kaj")
+        exit("Follow the instructions Kaj")
 
 
 # The forest chapter
 # Now it kinda works fine
 def goto_forest(health, end_dice, end_roll):
     print("You enter the forest, its dark and gloomy everywhere.\n "
-          "As you walk along the road you meet a an evil looking cheeky bestard.\n"
+          "As you walk along the road you meet an evil looking bastard.\n"
           "“STOP RIGHT THERE EVILDOER! I WILL NOT ALLOW YOU TO PROCEED!”-he yells.\n")
     print(
         colors.WARNING + "If you would like to get closer press 0 or if you would like to go to the graveyard press 1" + colors.ENDC)
@@ -1021,34 +1021,34 @@ def goto_forest(health, end_dice, end_roll):
 
         if end_dice == 1:
             print(
-                "After defeating him the bandit collapses on the ground. You walk towards him.\n “Don’t kill me, please!” he says as he starts to cry. What do you do?")
+                "After defeating him, the bandit collapses on the ground. You walk towards him.\n “Don’t kill me, please!” he says as he starts to cry. What do you do?")
             print(
-                colors.WARNING + "If you would like kill him press 0, or if you might like to let him alive press 1" + colors.ENDC)
+                colors.WARNING + "If you would like kill him press 0, or if you might like to let him live press 1" + colors.ENDC)
             python_dec = int(input())
             if python_dec == 0:
                 print(
-                    "Without doubt in your mind you raise your sword high and slices the bandit in half. His body falls to the ground.")
+                    "Without doubt in your mind, you raise your sword high and slices the bandit in half. His body falls to the ground.")
                 potion_dice = potion_forest
             elif python_dec == 1:
-                print("The bandit runs into the forest, you do not know whereto.")
+                print("The bandit runs into the forest, you do not know where to.")
                 potion_dice = potion_forest
             else:
                 print(colors.WARNING + "Please press 0 or 1" + colors.ENDC)
-                exit("Fallow the instructions Kaj")
+                exit("Follow the instructions Kaj")
 
-            print("You earned a hp!")
+            print("You earned a healthpoint!")
             print(health)
             health[0] = health[0] + 1
-            print("Courrent hp = ", health)
+            print("Current healthpoints = ", health)
             if int(str(health).strip('[]')) == 0:
                 exit("You lost the game")
             goto_curch(health, IOT_result)
 
         elif end_dice == 2:
             print(health)
-            print("You lost a hp!")
+            print("You lost a healthpoint!")
             health[0] = health[0] - 1
-            print("Courrent hp = ", health)
+            print("Current healthpoints = ", health)
             if int(str(health).strip('[]')) == 0:
                 exit("You lost the game")
             goto_curch(health, IOT_result)
@@ -1058,7 +1058,7 @@ def goto_forest(health, end_dice, end_roll):
         goto_grave(potion_grave,key)
     else:
         print(colors.WARNING + "Please press 0 or 1" + colors.ENDC)
-        exit("Fallow the instructions Kaj")
+        exit("Follow the instructions Kaj")
 
 
 # The Graveyard chapter
@@ -1067,7 +1067,7 @@ def goto_forest(health, end_dice, end_roll):
 def goto_grave(health, key):
     health = [1]
     print("You arrive at the graveyard, here you meet an old man\n"
-          "“Greetings my armored friend, what are you doing out here at this time of the night? Are you here to rob graves hehe?”\n")
+          "“Greetings my armored friend, what are you doing out here at this time of the night? Are you here to rob some graves hehe?”\n")
     print(colors.WARNING + "Yes = 0 or No = 1" + colors.ENDC)
     grave1 = int(2)
     grave1 = int(input())
@@ -1076,18 +1076,18 @@ def goto_grave(health, key):
             "“Hahaha you’re a funny guy. However on the more serious note, something has happened down in the catacombs. \nA grave has been opened, you don’t happen to be the man who opened it, do you?”")
     elif grave1 == 1:
         print(
-            "“Oh, that is sad. It should be a very profitable business! I have heard that there should be a tomb in the catacombs where a lord is buried, he should have some treasure buried with him.\n If I was younger I think I would open that grave just to take a look”")
+            "“Oh, that's sad. It should be a very profitable business! I have heard that there should be a tomb in the catacombs where a lord is buried, he should have some treasure buried with him.\n If I was younger I would have opened the grave just to take a look”")
     else:
         print("Please press 0 or 1")
-        exit("Fallow the instructions Kaj")
+        exit("Follow the instructions Kaj")
 
     print("The old man walks toward the catacombs. What do you do?")
-    print(colors.WARNING + "Follow him = 0 , Look around = 1, Go back and go the forest = 2" + colors.ENDC)
+    print(colors.WARNING + "Follow him = 0 , Look around = 1, Go back to the forest = 2" + colors.ENDC)
     grave2 = int(3)
     grave2 = int(input())
     if grave2 == 0:
         print("The old man leads you to the catacombs, inside it you see the grave where you woke up.\n"
-              "“There could be a treasure in here somewhere… by the way who are you? I can’t see your face underneath that helmet of yours”")
+              "“There could be a treasure in here somewhere… by the way, who are you? I can’t see your face underneath that helmet of yours”")
         print("What do you do?")
         print(colors.WARNING + "Remove helmet = 0 , Ignore his question and search the room = 1" + colors.ENDC)
         grave3 = int(2)
@@ -1107,12 +1107,12 @@ def goto_grave(health, key):
                 print("Great job, you succesfully opened the chest")
                 print("Great job, you succesfully opened the chest")
                 print(
-                    colors.OKBLUE + "A Key and a Healt Potion has been added to your inventory!\nHealt Potion increase your Healt Point by 1! Great job!" + colors.ENDC)
+                    colors.OKBLUE + "A Key and a healthpotion has been added to your inventory!\nHealthpotion increase your healtpoint by 1! Great job!" + colors.ENDC)
                 key[0] = 1
-                print("You earned a hp!")
+                print("You earned a healthpoint!")
                 print(health)
                 health[0] = health[0] + 1
-                print("Courrent hp = ", health)
+                print("Current healthpoints = ", health)
                 if int(str(health).strip('[]')) == 0:
                     exit("You lost the game")
                 goto_armory(health)
@@ -1121,7 +1121,7 @@ def goto_grave(health, key):
         goto_village(health)
 
     if grave2 == 2:
-        print("You goes ahead to the forest")
+        print("You proceed to the forest")
         goto_forest(health)
 
 
@@ -1139,9 +1139,9 @@ def goto_hero(health):
 
     elif runningoutofnames == 0:
         print("You failed\n\n")
-        print("You lost a hp!")
+        print("You lost a healthpoint!")
         health[0] = health[0] - 1
-        print("Courrent hp= = ", health)
+        print("Current healthpoints= = ", health)
         if health[0] == 0:
             exit("You lost the game")
         goto_village(health)
@@ -1152,11 +1152,11 @@ def goto_door(key, health):
     health = [1]
     keyk = str(key).strip('[]')
     if int(keyk) == 1:
-        print("The hero has been hung, and the goblins are cheering for you. You decide to seize the keep in the village, \nusing the keys you have found on your journey, \nyou unlock the door to the keep. \n
-You have now established yourself as the lord of the village, lord of goblins, burner of churches and the one risen from the dead.")
+        print("The hero has been hung, and the goblins are cheering for you. You decide to seize the keep in the village, \nusing the keys you have found on your journey, \nyou unlock the door to the keep. \n"
+              "You have now established yourself as the lord of the village, lord of goblins, \nburner of churches and the one risen from the dead.")
         exit()
     else:
-        print("You havent find the key yet! Go back to the Grceyard to look around!")
+        print("You haven't found the key yet! Go back to the graveyard to look around!")
         goto_grave(health, key)
     return
 
@@ -1164,7 +1164,7 @@ You have now established yourself as the lord of the village, lord of goblins, b
 # The armory chapter
 # Should be done - math game!
 def goto_armory(health):
-    print("On your road to the village you find an armory guarded by a paladin in shining armor. "
+    print("On your way to the village you found an armory guarded by a paladin in shining armor. "
           "He sees you and yells at you “UNHOLY BEING I SHALL SMITE THEE!”")
     math1 = 0
     math1 = math_game(math1)
@@ -1173,9 +1173,9 @@ def goto_armory(health):
         goto_village(health)
     elif math1 == 0:
         print("You failed\n\n")
-        print("You lost a hp!")
+        print("You lost a healthpoint!")
         health[0] = health[0] - 1
-        print("Courrent hp = ", health)
+        print("Current healthpoints = ", health)
         if health[0] == 0:
             exit("You lost the game")
         goto_village(health)
@@ -1198,9 +1198,9 @@ def goto_village(health):
             goto_hero(health)
         if solved2 == 2:
             print("You failed\n\n")
-            print("You lost a hp!")
+            print("You lost a healthpoint!")
             health[0] = health[0] - 1
-            print("Courrent hp = ", health)
+            print("Current healthpoints = ", health)
             if health[0] == 0:
                 exit("You lost the game")
             goto_hero(health)
@@ -1214,7 +1214,7 @@ def goto_village(health):
 print("You wake up in a dungeon, you don’t know where you are and everything is dark. \n"
       "You are in some sort of box, where the top is loose.\n"
       "You can see a small light shining through a crack in the roof of the box.\n"
-      "You push the roof off the box and a flashing light shines into your face.You are in a catacomb.\n"
+      "You push the roof off the box and a flashing light shines into your face. You are in a catacomb.\n"
       "You see a small green goblin looking at you, it starts to yell “HES AWAKE! HES AWAKE!”\n"
       "Suddenly a group of goblins comes down into the catacomb and they all cheer.\n"
       "“Welcome back from the grave, my lord, I am Rufus your loyal servant” says an old goblin.\n"
@@ -1232,7 +1232,7 @@ print("You wake up in a dungeon, you don’t know where you are and everything i
       "“Put this on sire, this will protect you from those pesky humans!”\n"
       "\n"
       "“Now you are ready sire! Come lets gather your forces of evil and take back what was taken from us!” Rufus says as he leads you out of the castle.\n"
-      "“I am sadly too old to tag along with you, but you will do fine by yourself for now.\n"
+      "“I am sadly too old to join you, but you will do fine by yourself for now.\n"
       "\n"
       "Outside of the castle there is a road, which you follow, you meet a crossroad. One road leads to the graveyard where you woke up, the other leads to the forest.\n")
 
