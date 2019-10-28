@@ -1,8 +1,8 @@
 After the dust has settled and the village has been pillaged you stand with a group of prisoners.
-“SIRE! We have captured the hero that crushed our castle and slayed you, we are ready to punish him for his crimes against the Goblin race and the forces of evil!”
+â€œSIRE! We have captured the hero that crushed our castle and slayed you, we are ready to punish him for his crimes against the Goblin race and the forces of evil!â€
 Rufus says.
 
-“HANG HIM, HANG HIM!” the goblin army shouts. 
+â€œHANG HIM, HANG HIM!â€ the goblin army shouts. 
 [HANGMAN GAME BEGINS]
 
 Once the hero has been hung you and the goblins celebrate a successful raid, congratulations you have completed the game!
