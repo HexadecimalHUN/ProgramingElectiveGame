@@ -892,7 +892,7 @@ def minesweeper(solved):
 
         return True
 
-    solved = 0
+
 
     def main(solved):
         SIZE = 10
@@ -915,8 +915,7 @@ def minesweeper(solved):
             solved = 2
             return solved
 
-    # if __name__ == "__main__":
-    #   solved = main(solved)
+    main(solved)
 
     if solved == 1:
         print("you won")
@@ -930,7 +929,7 @@ def driver():
     print(colors.WARNING + "Graveyard = 0, Forest = 1" + colors.ENDC)
     go_val = int(input())
     if go_val == 0:
-        goto_grave(potion_grave)
+        goto_grave(potion_grave,key)
     elif go_val == 1:
         goto_forest(potion_forest, potion_dice, health)
     else:
@@ -1077,6 +1076,7 @@ def goto_grave(health,key):
                 goto_armory(health)
             elif ipgame_result == 1:
                 print("Great job, you succesfully opened the chest")
+                print("Great job, you succesfully opened the chest")
                 print(
                     colors.OKBLUE + "A Key and a Healt Potion has been added to your inventory!\nHealt Potion increase your Healt Point by 1! Great job!" + colors.ENDC)
                 key[0] = 1
@@ -1153,6 +1153,7 @@ def goto_armory(health):
 # The vilage chapter
 # Can loose hp there
 def goto_village(health):
+    health = [1]
     print("As you arrive at the village you are greeted by the goblin Rufus.\n"
           "“Sire, we have gathered an army of goblins ready to raid the village at your command.\n"
           "You will have to lead us into combat. \n"
@@ -1175,7 +1176,7 @@ def goto_village(health):
 
     if vilage_dic == 1:
         print("As you aren’t ready to raid the village you decide to return to the armory to prepare for war")
-        goto_armory()
+        goto_armory(health)
 
 
 # First dialogue
@@ -1205,5 +1206,6 @@ print("You wake up in a dungeon, you don’t know where you are and everything i
       "Outside of the castle there is a road, which you follow, you meet a crossroad. One road leads to the graveyard where you woke up, the other leads to the forest.\n")
 
 # Driver Function
+
 driver()
 
