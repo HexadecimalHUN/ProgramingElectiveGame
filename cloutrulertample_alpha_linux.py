@@ -1177,7 +1177,7 @@ def goto_armory(health):
         print("Courrent hp = ", health)
         if health[0] == 0:
             exit("You lost the game")
-        goto_village()
+        goto_village(health)
 
 
 # The vilage chapter
