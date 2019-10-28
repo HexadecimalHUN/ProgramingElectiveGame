@@ -1,8 +1,0 @@
-- command 3 types of goblin units, (warriors, archers, wizards) opponent controls 3 type of human units (warriors, archers, wizards). Warriors beat archers, archers beat wizards, wizards beat warriors.
-Rock, paper, scissors. 
-
-- A snake like game. The player leads a line of goblin soldiers through a city (labyrinth / obstacles) and hunt humans to kill. Each time you kill a human your goblin army grows (like a snake eating) and when you have killed X humans you complete the game. If you hit obstacles you lose life.
-
-
-
-
