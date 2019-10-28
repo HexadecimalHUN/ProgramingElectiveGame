@@ -906,8 +906,8 @@ def minesweeper(solved):
 
     #Main driver function
     def main(solved):
-        SIZE = 15
-        MINES = 15
+        SIZE = 10
+        MINES = 9
         board = create_board(SIZE, MINES)
         print(board)
         while board.is_playing and not board.is_solved:
