@@ -10,6 +10,7 @@ from string import ascii_lowercase
 key = [0]
 health = [3]
 result_ipgame = 0
+solved2 = 0
 go_val = int(3)
 python_result = int(0)
 potion_grave = int(0)
@@ -1180,10 +1181,10 @@ def goto_village(health):
     vilage_dic = 2
     vilage_dic = int(input())
     if vilage_dic == 0:
-        minesweeper(solved)
-        if solved == 1:
+        solved2 = minesweeper(solved)
+        if solved2 == 1:
             goto_hero(health)
-        if solved == 2:
+        if solved2 == 2:
             print("You failed\n\n")
             print("You lost a hp!")
             health[0] = health[0] - 1
