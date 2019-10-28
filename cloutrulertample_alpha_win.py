@@ -1045,7 +1045,7 @@ def goto_forest(health, end_dice, end_roll):
 
 
     elif python_game == 1:
-        goto_grave(potion_grave)
+        goto_grave(potion_grave,key)
     else:
         print("Please press 0 or 1")
         exit("Fallow the instructions Kaj")
@@ -1166,7 +1166,7 @@ def goto_armory(health):
         print("Courrent hp = ", health)
         if health[0] == 0:
             exit("You lost the game")
-        goto_village()
+        goto_village(health)
 
 
 # The vilage chapter
