@@ -22,6 +22,7 @@ go_val = int(3)
 python_result = int(0)
 potion_grave = int(0)
 potion_dice = 0
+solved2 = 0
 grave_outc = 0
 solved = 0
 potion_forest = 0
@@ -946,7 +947,7 @@ def minesweeper(solved):
     solved = main(solved)
 
     if solved == 1:
-        print("you won the hangman game \n")
+        print("you won the minesweeper game \n")
     return solved
 
 
@@ -1191,10 +1192,10 @@ def goto_village(health):
     vilage_dic = 2
     vilage_dic = int(input())
     if vilage_dic == 0:
-        minesweeper(solved)
-        if solved == 1:
+        solved2 = minesweeper(solved)
+        if solved2 == 1:
             goto_hero(health)
-        if solved == 2:
+        if solved2 == 2:
             print("You failed\n\n")
             print("You lost a hp!")
             health[0] = health[0] - 1
@@ -1235,4 +1236,5 @@ print("You wake up in a dungeon, you don’t know where you are and everything i
       "Outside of the castle there is a road, which you follow, you meet a crossroad. One road leads to the graveyard where you woke up, the other leads to the forest.\n")
 
 # Driver Function
+goto_village(health)
 driver()
