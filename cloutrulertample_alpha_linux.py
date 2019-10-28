@@ -1055,7 +1055,7 @@ def goto_forest(health, end_dice, end_roll):
 
 
     elif python_game == 1:
-        goto_grave(potion_grave)
+        goto_grave(potion_grave,key)
     else:
         print(colors.WARNING + "Please press 0 or 1" + colors.ENDC)
         exit("Fallow the instructions Kaj")
