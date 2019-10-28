@@ -1152,8 +1152,8 @@ def goto_door(key, health):
     health = [1]
     keyk = str(key).strip('[]')
     if int(keyk) == 1:
-        print("The hero has been hung, and you have returned to your castle. \nYou arrive at the door to the throne room, ready to take your throne. \n
-        the door to the throneroom is locked, but your two keys fit")
+        print("The hero has been hung, and the goblins are cheering for you. You decide to seize the keep in the village, \nusing the keys you have found on your journey, \nyou unlock the door to the keep. \n
+You have now established yourself as the lord of the village, lord of goblins, burner of churches and the one risen from the dead.")
         exit()
     else:
         print("You havent find the key yet! Go back to the Grceyard to look around!")
