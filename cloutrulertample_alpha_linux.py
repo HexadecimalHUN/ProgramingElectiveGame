@@ -926,7 +926,7 @@ def minesweeper(solved):
             solved = 2
             return solved
     #Function Call
-    main(solved)
+    solved = main(solved)
     
     if solved == 1:
         print("you won")
